@@ -507,6 +507,134 @@
         }
 
         /* ═══════════════════════════════════════════
+           TRACK RECORD — Preuve sociale
+           ═══════════════════════════════════════════ */
+        .track-record {
+            background: var(--cream);
+            border-top: 1px solid var(--border);
+        }
+
+        .track-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .track-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .track-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-orange);
+        }
+
+        .track-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .track-card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        .track-card-status .dot-live {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .track-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .track-card-tagline {
+            font-size: 0.9rem;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .track-card p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+        }
+
+        .track-card-metrics {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .track-metric {
+            text-align: center;
+        }
+
+        .track-metric-value {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .track-metric-value.orange {
+            color: var(--orange);
+        }
+
+        .track-metric-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 0.1rem;
+        }
+
+        .track-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--orange);
+            text-decoration: none;
+            margin-top: 0.5rem;
+            transition: gap 0.2s;
+        }
+
+        .track-card-link:hover {
+            gap: 0.6rem;
+        }
+
+        @media (max-width: 968px) {
+            .track-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ═══════════════════════════════════════════
            DAIRIA IA
            ═══════════════════════════════════════════ */
         .dairia {
@@ -1209,6 +1337,83 @@
                             <div class="milestone-detail">Légifrance, BOSS, KALI, Jurisprudence, JORF</div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ TRACK RECORD ═══════════════ -->
+    <section class="track-record" id="track">
+        <div class="section-inner">
+            <div style="text-align: center;">
+                <span class="section-label fade-up">Ce que j'ai construit</span>
+                <h2 class="section-title fade-up">3 entreprises. Des vrais résultats.</h2>
+                <p class="section-subtitle fade-up delay-1" style="margin: 0 auto;">
+                    Je ne donne pas de conseils théoriques. Tout ce que je partage, je l'ai testé sur mes propres boîtes.
+                </p>
+            </div>
+
+            <div class="track-grid">
+                <div class="track-card fade-up delay-1">
+                    <div class="track-card-status"><span class="dot-live"></span> En activité</div>
+                    <h3>DAIRIA Avocats</h3>
+                    <div class="track-card-tagline">Le cabinet qui a fusionné droit et paie</div>
+                    <p>Premier cabinet en France à intégrer un département paie. On va dans les bulletins, les DSN, les paramétrages. Et quand on trouve un problème, on le corrige.</p>
+                    <div class="track-card-metrics">
+                        <div class="track-metric">
+                            <div class="track-metric-value orange">12</div>
+                            <div class="track-metric-label">collaborateurs</div>
+                        </div>
+                        <div class="track-metric">
+                            <div class="track-metric-value">100%</div>
+                            <div class="track-metric-label">côté employeur</div>
+                        </div>
+                        <div class="track-metric">
+                            <div class="track-metric-value orange">2019</div>
+                            <div class="track-metric-label">création</div>
+                        </div>
+                    </div>
+                    <a href="https://www.dairia-avocats.com" target="_blank" rel="noopener" class="track-card-link">dairia-avocats.com →</a>
+                </div>
+
+                <div class="track-card fade-up delay-2">
+                    <div class="track-card-status"><span class="dot-live"></span> En activité</div>
+                    <h3>DAIRIA IA</h3>
+                    <div class="track-card-tagline">L'IA juridique à 90€/mois</div>
+                    <p>Intelligence artificielle connectée à Légifrance, BOSS, conventions collectives et milliers de mémos pratiques. Powered by Claude. Les DRH n'attendent plus 48h pour une réponse.</p>
+                    <div class="track-card-metrics">
+                        <div class="track-metric">
+                            <div class="track-metric-value orange">5</div>
+                            <div class="track-metric-label">sources légales</div>
+                        </div>
+                        <div class="track-metric">
+                            <div class="track-metric-value">90€</div>
+                            <div class="track-metric-label">HT/mois</div>
+                        </div>
+                        <div class="track-metric">
+                            <div class="track-metric-value orange">24/7</div>
+                            <div class="track-metric-label">disponible</div>
+                        </div>
+                    </div>
+                    <a href="https://dairia.ai" target="_blank" rel="noopener" class="track-card-link">dairia.ai →</a>
+                </div>
+
+                <div class="track-card fade-up delay-3">
+                    <div class="track-card-status"><span class="dot-live"></span> En activité</div>
+                    <h3>GérerMesATMP</h3>
+                    <div class="track-card-tagline">Le levier AT/MP que 90% des entreprises ignorent</div>
+                    <p>Outil d'optimisation des cotisations accidents du travail et maladies professionnelles. Des dizaines de milliers d'euros économisés pour les entreprises qui l'utilisent.</p>
+                    <div class="track-card-metrics">
+                        <div class="track-metric">
+                            <div class="track-metric-value orange">90%</div>
+                            <div class="track-metric-label">entreprises passent à côté</div>
+                        </div>
+                        <div class="track-metric">
+                            <div class="track-metric-value">k€</div>
+                            <div class="track-metric-label">économisés</div>
+                        </div>
+                    </div>
+                    <a href="https://gerermesatmp.com" target="_blank" rel="noopener" class="track-card-link">gerermesatmp.com →</a>
                 </div>
             </div>
         </div>
