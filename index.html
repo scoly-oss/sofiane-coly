@@ -48,6 +48,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
         body {
@@ -298,82 +299,88 @@
             align-items: center;
         }
 
-        .hero-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            width: 100%;
-            max-width: 420px;
+        .hero-photo-wrapper {
             position: relative;
+            width: 100%;
+            max-width: 440px;
         }
 
-        .hero-card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .hero-photo {
+            width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            object-position: center top;
+            aspect-ratio: 3/4;
+            box-shadow: var(--shadow-lg);
         }
 
-        .hero-card-avatar {
-            width: 56px;
-            height: 56px;
+        .hero-photo-overlay {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
             border-radius: 16px;
-            background: var(--gradient-orange);
+            padding: 1rem 1.8rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
+            gap: 1.2rem;
+            white-space: nowrap;
         }
 
-        .hero-card-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--navy);
-        }
-
-        .hero-card-role {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        .hero-card-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-box {
-            background: var(--cream);
-            border-radius: 12px;
-            padding: 1rem;
+        .hero-photo-stat {
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 1.5rem;
+        .hero-photo-stat .stat-number {
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--navy);
+            line-height: 1;
         }
 
-        .stat-number.orange {
+        .hero-photo-stat .stat-number.orange {
             color: var(--orange);
         }
 
-        .stat-label {
-            font-size: 0.75rem;
+        .hero-photo-stat .stat-label {
+            font-size: 0.7rem;
             color: var(--text-light);
             margin-top: 0.2rem;
         }
 
-        .hero-card-tags {
+        .hero-photo-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border);
+        }
+
+        .hero-card-floating {
+            position: absolute;
+            top: 16px;
+            right: -12px;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0.6rem 1rem;
+            box-shadow: var(--shadow-md);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            border: 1px solid var(--border);
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 0.4rem;
+            z-index: 2;
+        }
+
+        .hero-card-floating .dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
         .tag {
@@ -391,31 +398,6 @@
         .tag-navy {
             background: rgba(30, 45, 61, 0.06);
             color: var(--navy-light);
-        }
-
-        .hero-card-floating {
-            position: absolute;
-            top: -12px;
-            right: -12px;
-            background: var(--white);
-            border-radius: 12px;
-            padding: 0.6rem 1rem;
-            box-shadow: var(--shadow-md);
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--navy);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .hero-card-floating .dot {
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
         }
 
         /* ═══════════════════════════════════════════
@@ -939,8 +921,9 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.2rem 2rem;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -987,7 +970,7 @@
         @media (max-width: 968px) {
             .hero-inner {
                 grid-template-columns: 1fr;
-                text-align: center;
+                text-align: left;
             }
 
             .hero-subtitle {
@@ -995,16 +978,34 @@
             }
 
             .hero-ctas {
-                justify-content: center;
+                justify-content: flex-start;
             }
 
             .hero-visual {
                 order: -1;
             }
 
-            .hero-card {
-                max-width: 360px;
+            .hero-photo-wrapper {
+                max-width: 340px;
                 margin: 0 auto;
+            }
+
+            .hero-photo {
+                aspect-ratio: 3/4;
+            }
+
+            .hero-card-floating {
+                right: -12px;
+                left: auto;
+                top: 12px;
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .hero-photo-overlay {
+                gap: 0.8rem;
+                padding: 0.8rem 1.2rem;
+                width: max-content;
             }
 
             .about-grid {
@@ -1054,9 +1055,36 @@
 
             .hero { padding: 5rem 1.2rem 3rem; min-height: auto; }
 
-            .hero-card { padding: 1.5rem; }
+            .hero-inner { text-align: left; }
 
-            .hero-card-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+            .hero h1 { font-size: 1.8rem; }
+
+            .hero-subtitle { font-size: 0.95rem; text-align: left; }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+            }
+
+            .btn-primary, .btn-secondary {
+                text-align: center;
+                justify-content: center;
+                font-size: 0.85rem;
+                padding: 0.75rem 1rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .section-title { font-size: 1.5rem; }
+
+            .hero-content, .about-text, .section-inner {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+
+            .hero-photo-overlay .stat-label { font-size: 0.6rem; }
+            .hero-photo-overlay .stat-number { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -1091,7 +1119,7 @@
                     rencontre <span class="accent">l'intelligence artificielle.</span>
                 </h1>
                 <p class="hero-subtitle">
-                    Avocat en droit social côté employeur, CEO de DAIRIA Avocats et fondateur de DAIRIA IA — la première plateforme d'intelligence juridique proactive connectée aux sources légales françaises.
+                    Le droit social n'est pas un sujet juridique. C'est un sujet de pilotage d'entreprise. Avocat pendant 10 ans, CEO de DAIRIA Avocats, fondateur de DAIRIA IA — l'intelligence juridique qui anticipe.
                 </p>
                 <div class="hero-ctas">
                     <a href="#dairia" class="btn-primary">Découvrir DAIRIA IA →</a>
@@ -1099,40 +1127,26 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-card fade-up">
+                <div class="hero-photo-wrapper fade-up">
                     <div class="hero-card-floating">
                         <span class="dot"></span> Powered by Claude
                     </div>
-                    <div class="hero-card-header">
-                        <div class="hero-card-avatar">SC</div>
-                        <div>
-                            <div class="hero-card-name">Sofiane Coly</div>
-                            <div class="hero-card-role">CEO — DAIRIA Avocats & DAIRIA IA</div>
-                        </div>
-                    </div>
-                    <div class="hero-card-stats">
-                        <div class="stat-box">
+                    <img src="assets/sofiane-coly-web.jpg" alt="Sofiane Coly — Avocat en droit social et fondateur de DAIRIA IA" class="hero-photo" loading="eager">
+                    <div class="hero-photo-overlay">
+                        <div class="hero-photo-stat">
                             <div class="stat-number orange">10+</div>
                             <div class="stat-label">Années au barreau</div>
                         </div>
-                        <div class="stat-box">
+                        <div class="hero-photo-divider"></div>
+                        <div class="hero-photo-stat">
                             <div class="stat-number">12</div>
                             <div class="stat-label">Collaborateurs</div>
                         </div>
-                        <div class="stat-box">
+                        <div class="hero-photo-divider"></div>
+                        <div class="hero-photo-stat">
                             <div class="stat-number orange">5</div>
-                            <div class="stat-label">Sources légales connectées</div>
+                            <div class="stat-label">Sources connectées</div>
                         </div>
-                        <div class="stat-box">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Côté employeur</div>
-                        </div>
-                    </div>
-                    <div class="hero-card-tags">
-                        <span class="tag tag-orange">Droit social</span>
-                        <span class="tag tag-navy">Intelligence artificielle</span>
-                        <span class="tag tag-orange">LegalTech</span>
-                        <span class="tag tag-navy">Barreau de Lyon</span>
                     </div>
                 </div>
             </div>
@@ -1147,21 +1161,23 @@
             <div class="about-grid">
                 <div class="about-text fade-up">
                     <p>
-                        Je suis <strong>avocat en droit social côté employeur</strong>, inscrit au barreau de Lyon depuis 2015.
-                        À la tête de <strong>DAIRIA Avocats</strong>, un cabinet de 12 personnes, j'accompagne dirigeants et DRH
-                        sur l'ensemble de leurs problématiques sociales : contentieux prud'homal, restructurations,
-                        négociations collectives, conformité.
+                        J'ai été <strong>avocat en droit social pendant 10 ans</strong> avant de comprendre un truc tout bête :
+                        personne ne fait le lien entre le droit du travail et la paie. L'avocat envoie ses préconisations,
+                        le gestionnaire de paie fait ce qu'il peut avec, et entre les deux il y a un trou. C'est dans ce trou
+                        que les entreprises perdent des dizaines de milliers d'euros — en contrôles URSSAF, en contentieux
+                        prud'homaux, en taux AT/MP mal optimisés.
                     </p>
                     <p>
-                        Convaincu que le droit doit être <strong>proactif plutôt que réactif</strong>, j'ai fondé
-                        <strong>DAIRIA IA</strong> — un assistant juridique alimenté par Claude (Anthropic) et connecté
-                        en temps réel aux bases légales françaises. L'objectif : offrir aux entreprises une intelligence
-                        juridique qui anticipe les risques avant qu'ils ne deviennent des contentieux.
+                        J'ai créé <strong>DAIRIA Avocats</strong> pour combler ce trou. On a fait un truc que personne n'avait
+                        fait en France : <strong>intégrer un département paie dans un cabinet d'avocats</strong>. Résultat,
+                        quand on audite votre conformité sociale, on ne s'arrête pas à la théorie juridique — on va dans
+                        les bulletins, dans les DSN, dans les paramétrages. Et quand on trouve un problème, on le corrige nous-mêmes.
                     </p>
                     <p>
-                        Mon approche du droit est inspirée par la philosophie bergsonienne de l'action :
-                        <strong>comprendre le mouvement, pas seulement la règle figée</strong>. C'est cette vision qui
-                        guide aussi bien mon travail d'avocat que ma manière de concevoir l'IA juridique.
+                        Aujourd'hui, la direction opérationnelle du cabinet est entre les mains de mon associé
+                        <strong>Loïc Guitton</strong> et de notre directrice opérationnelle <strong>Audrey Mourer</strong>.
+                        Moi, je fais ce que je sais faire le mieux : <strong>développer des outils, créer des partenariats,
+                        et partager tout ce qu'on apprend chaque semaine</strong>.
                     </p>
                 </div>
                 <div class="about-milestones fade-up delay-2">
@@ -1205,8 +1221,9 @@
                 <span class="section-label fade-up">DAIRIA IA</span>
                 <h2 class="section-title fade-up">L'intelligence juridique<br>qui anticipe.</h2>
                 <p class="section-subtitle fade-up delay-1" style="margin: 0 auto;">
-                    DAIRIA IA connecte la puissance de Claude aux bases légales françaises en temps réel.
-                    Pas un chatbot — un véritable assistant juridique qui connaît votre contexte d'entreprise.
+                    Un outil d'IA branché sur des milliers de mémos pratiques en droit social, connecté à Légifrance,
+                    au BOSS, aux conventions collectives. Accessible à 90€ HT/mois. Parce que les DRH ne devraient pas
+                    avoir à attendre 48h pour savoir si leur procédure tient la route.
                 </p>
             </div>
 
@@ -1237,7 +1254,7 @@
             </div>
 
             <div class="dairia-cta fade-up delay-3">
-                <a href="#contact" class="btn-primary-light">Demander une démo →</a>
+                <a href="https://dairia.ai" target="_blank" rel="noopener" class="btn-primary-light">Découvrir dairia.ai →</a>
             </div>
         </div>
     </section>
@@ -1252,8 +1269,9 @@
 
             <div class="vision-quote fade-up delay-1">
                 <blockquote>
-                    Les SIRH classiques regardent en arrière. DAIRIA IA regarde en avant.
-                    La vraie valeur n'est pas dans la gestion, elle est dans l'anticipation.
+                    Personne ne fait le lien entre le droit du travail et la paie.
+                    C'est dans ce trou que les entreprises perdent des dizaines de milliers d'euros.
+                    On a décidé de le combler.
                 </blockquote>
                 <div class="attribution">— Sofiane Coly</div>
             </div>
@@ -1261,18 +1279,18 @@
             <div class="vision-pillars">
                 <div class="pillar fade-up delay-1">
                     <div class="pillar-icon">🔮</div>
-                    <h3>Anticipation</h3>
-                    <p>Le droit social n'est pas un frein — c'est un levier stratégique quand on voit les risques avant qu'ils n'arrivent.</p>
+                    <h3>Droit + Paie = un seul cabinet</h3>
+                    <p>On a intégré un département paie dans un cabinet d'avocats. Quand on audite, on va dans les bulletins, les DSN, les paramétrages. Et on corrige.</p>
                 </div>
                 <div class="pillar fade-up delay-2">
-                    <div class="pillar-icon">🔗</div>
-                    <h3>Connexion</h3>
-                    <p>La brique d'intelligence juridique qui se branche sur les SIRH existants — Payfit, Cegid, ADP. Pas un outil de plus, une couche de valeur.</p>
+                    <div class="pillar-icon">⚡</div>
+                    <h3>L'IA au service du terrain</h3>
+                    <p>DAIRIA IA et GérerMesATMP : des outils concrets pour les DRH et les dirigeants. Pas de la théorie, du résultat mesurable.</p>
                 </div>
                 <div class="pillar fade-up delay-3">
-                    <div class="pillar-icon">🧠</div>
-                    <h3>Bergson meets Legal</h3>
-                    <p>Comprendre le mouvement du droit, pas seulement la règle figée. L'IA saisit le contexte vivant, pas juste le texte mort.</p>
+                    <div class="pillar-icon">🤝</div>
+                    <h3>Partager, chaque semaine</h3>
+                    <p>Newsletter chaque vendredi, LinkedIn quotidien. Tout ce qu'on apprend au cabinet, on le partage. C'est comme ça qu'on fait avancer la profession.</p>
                 </div>
             </div>
         </div>
@@ -1286,29 +1304,32 @@
             <p class="section-subtitle fade-up delay-1">Réflexions sur le droit social, l'IA juridique et l'avenir de la profession d'avocat.</p>
 
             <div class="contenus-grid">
-                <a class="contenu-card fade-up delay-1" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
-                    <div class="contenu-card-type">LinkedIn</div>
-                    <h3>Pourquoi les DRH ont besoin d'un copilote IA juridique</h3>
-                    <p>Le quotidien d'un DRH est fait de micro-décisions juridiques. L'IA ne remplace pas l'avocat — elle donne la bonne info au bon moment.</p>
-                    <div class="contenu-card-footer">Lire sur LinkedIn →</div>
+                <a class="contenu-card fade-up delay-1" href="https://substack.com/@coly354103" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">Newsletter</div>
+                    <h3>Newsletter droit social — chaque vendredi</h3>
+                    <p>Chaque semaine, tout ce qu'on apprend au cabinet : jurisprudence, conformité, paie, URSSAF. Du concret, pas de la doctrine.</p>
+                    <div class="contenu-card-footer">S'abonner sur Substack →</div>
                 </a>
-                <a class="contenu-card fade-up delay-2" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
-                    <div class="contenu-card-type">LinkedIn</div>
-                    <h3>L'avocat qui code : retour d'expérience sur la construction de DAIRIA IA</h3>
-                    <p>Comment passer de "je fais du droit" à "je construis un produit tech" — sans perdre son âme d'avocat.</p>
-                    <div class="contenu-card-footer">Lire sur LinkedIn →</div>
+                <a class="contenu-card fade-up delay-2" href="https://dairia.ai" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">Produit</div>
+                    <h3>DAIRIA IA — L'IA juridique à 90€/mois</h3>
+                    <p>Branché sur Légifrance, BOSS, conventions collectives et des milliers de mémos pratiques. La réponse en temps réel, pas en 48h.</p>
+                    <div class="contenu-card-footer">Découvrir dairia.ai →</div>
                 </a>
-                <a class="contenu-card fade-up delay-3" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
-                    <div class="contenu-card-type">Substack</div>
-                    <h3>Bergson, le droit social et l'IA : une philosophie de l'anticipation</h3>
-                    <p>Ce que la philosophie bergsonienne du mouvement nous apprend sur la manière dont l'IA devrait aborder le droit.</p>
-                    <div class="contenu-card-footer">Lire sur Substack →</div>
+                <a class="contenu-card fade-up delay-3" href="https://gerermesatmp.com" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">Outil</div>
+                    <h3>GérerMesATMP — Optimisez vos taux AT/MP</h3>
+                    <p>L'outil pour comprendre et optimiser vos cotisations accidents du travail et maladies professionnelles. Un levier sous-exploité par 90% des entreprises.</p>
+                    <div class="contenu-card-footer">Découvrir gerermesatmp.com →</div>
                 </a>
             </div>
 
-            <div class="contenus-cta fade-up">
+            <div class="contenus-cta fade-up" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener" class="btn-secondary">
                     Suivre sur LinkedIn →
+                </a>
+                <a href="https://substack.com/@coly354103" target="_blank" rel="noopener" class="btn-secondary">
+                    Newsletter Substack →
                 </a>
             </div>
         </div>
