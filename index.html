@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofiane Coly — Avocat en droit social & Fondateur de DAIRIA IA</title>
+    <meta name="description" content="Sofiane Coly, avocat en droit social côté employeur, CEO de DAIRIA Avocats (Lyon) et fondateur de DAIRIA IA — l'assistant juridique IA connecté aux bases légales françaises.">
+    <meta name="author" content="Sofiane Coly">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sofiane Coly — Avocat & Fondateur de DAIRIA IA">
+    <meta property="og:description" content="Avocat en droit social côté employeur. CEO de DAIRIA Avocats. Fondateur de DAIRIA IA, l'intelligence juridique proactive powered by Claude.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           DESIGN TOKENS — DAIRIA Brand
+           ═══════════════════════════════════════════ */
+        :root {
+            --orange: #e8842c;
+            --orange-light: #F5A623;
+            --navy: #1e2d3d;
+            --navy-light: #2a3f52;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --text-primary: #1e2d3d;
+            --text-secondary: #5a6a7a;
+            --text-light: #8a96a3;
+            --border: rgba(30, 45, 61, 0.08);
+            --gradient-orange: linear-gradient(135deg, #e8842c 0%, #F5A623 100%);
+            --shadow-sm: 0 1px 3px rgba(30, 45, 61, 0.06);
+            --shadow-md: 0 4px 20px rgba(30, 45, 61, 0.08);
+            --shadow-lg: 0 8px 40px rgba(30, 45, 61, 0.12);
+            --shadow-orange: 0 4px 20px rgba(232, 132, 44, 0.25);
+        }
+
+        /* ═══════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ═══════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(250, 248, 245, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a.cta-nav {
+            background: var(--gradient-orange);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-links a.cta-nav:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy);
+            margin: 5px 0;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        /* ═══════════════════════════════════════════
+           HERO
+           ═══════════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at 80% 30%, rgba(232, 132, 44, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(232, 132, 44, 0.08);
+            color: var(--orange);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 .accent {
+            background: var(--gradient-orange);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-orange);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            color: var(--navy);
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+        }
+
+        .hero-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-card-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: var(--gradient-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .hero-card-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--navy);
+        }
+
+        .hero-card-role {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .hero-card-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .stat-number.orange {
+            color: var(--orange);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        .hero-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        .tag-orange {
+            background: rgba(232, 132, 44, 0.1);
+            color: var(--orange);
+        }
+
+        .tag-navy {
+            background: rgba(30, 45, 61, 0.06);
+            color: var(--navy-light);
+        }
+
+        .hero-card-floating {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0.6rem 1rem;
+            box-shadow: var(--shadow-md);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--navy);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .hero-card-floating .dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        /* ═══════════════════════════════════════════
+           SECTIONS COMMON
+           ═══════════════════════════════════════════ */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════
+           À PROPOS
+           ═══════════════════════════════════════════ */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .about-text strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .about-milestones {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .milestone {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            background: var(--cream);
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            transition: transform 0.2s;
+        }
+
+        .milestone:hover {
+            transform: translateX(4px);
+        }
+
+        .milestone-year {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--orange);
+            background: rgba(232, 132, 44, 0.1);
+            padding: 0.3rem 0.7rem;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        .milestone-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .milestone-detail {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           DAIRIA IA
+           ═══════════════════════════════════════════ */
+        .dairia {
+            background: var(--navy);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dairia::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 20% 80%, rgba(232, 132, 44, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(245, 166, 35, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .dairia .section-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dairia .section-label {
+            color: var(--orange-light);
+        }
+
+        .dairia .section-title {
+            color: white;
+        }
+
+        .dairia .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .dairia-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .dairia-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .dairia-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .dairia-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--gradient-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .dairia-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: white;
+        }
+
+        .dairia-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .dairia-sources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .source-badge {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.5rem 1.2rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .dairia-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-primary-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary-light:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        /* ═══════════════════════════════════════════
+           VISION / PHILOSOPHY
+           ═══════════════════════════════════════════ */
+        .vision {
+            background: var(--cream);
+        }
+
+        .vision-quote {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            text-align: center;
+        }
+
+        .vision-quote blockquote {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.5;
+            position: relative;
+            font-style: italic;
+        }
+
+        .vision-quote blockquote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--orange);
+            position: absolute;
+            top: -1.5rem;
+            left: -1rem;
+            font-style: normal;
+            line-height: 1;
+        }
+
+        .vision-quote .attribution {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .vision-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .pillar {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .pillar-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════
+           CONTENUS
+           ═══════════════════════════════════════════ */
+        .contenus {
+            background: var(--white);
+        }
+
+        .contenus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .contenu-card {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contenu-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(232, 132, 44, 0.2);
+        }
+
+        .contenu-card-type {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--orange);
+            margin-bottom: 0.8rem;
+        }
+
+        .contenu-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+            line-height: 1.4;
+        }
+
+        .contenu-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contenu-card-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--orange);
+        }
+
+        .contenus-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ═══════════════════════════════════════════
+           CONTACT
+           ═══════════════════════════════════════════ */
+        .contact {
+            background: var(--cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--orange);
+            transform: translateX(4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-link-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-link-text {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .contact-link-detail {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background: var(--cream);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--gradient-orange);
+            color: white;
+            padding: 0.9rem;
+            border-radius: 12px;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-orange);
+        }
+
+        /* ═══════════════════════════════════════════
+           FOOTER
+           ═══════════════════════════════════════════ */
+        footer {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+        }
+
+        .footer-copy .heart {
+            color: var(--orange);
+        }
+
+        /* ═══════════════════════════════════════════
+           ANIMATIONS
+           ═══════════════════════════════════════════ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════ */
+        @media (max-width: 968px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                max-width: 100%;
+            }
+
+            .hero-ctas {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-card {
+                max-width: 360px;
+                margin: 0 auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .dairia-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vision-pillars {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contenus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav { padding: 0.8rem 1.2rem; }
+
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(250, 248, 245, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-mobile-toggle { display: block; }
+
+            section { padding: 4rem 1.2rem; }
+
+            .hero { padding: 5rem 1.2rem 3rem; min-height: auto; }
+
+            .hero-card { padding: 1.5rem; }
+
+            .hero-card-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Sofiane <span>Coly</span></a>
+            <button class="nav-mobile-toggle" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#dairia">DAIRIA IA</a></li>
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#contenus">Contenus</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#dairia" class="cta-nav">Découvrir DAIRIA IA →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">Avocat & Entrepreneur IA</div>
+                <h1>
+                    Le droit social<br>
+                    rencontre <span class="accent">l'intelligence artificielle.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Avocat en droit social côté employeur, CEO de DAIRIA Avocats et fondateur de DAIRIA IA — la première plateforme d'intelligence juridique proactive connectée aux sources légales françaises.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#dairia" class="btn-primary">Découvrir DAIRIA IA →</a>
+                    <a href="#contact" class="btn-secondary">Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card fade-up">
+                    <div class="hero-card-floating">
+                        <span class="dot"></span> Powered by Claude
+                    </div>
+                    <div class="hero-card-header">
+                        <div class="hero-card-avatar">SC</div>
+                        <div>
+                            <div class="hero-card-name">Sofiane Coly</div>
+                            <div class="hero-card-role">CEO — DAIRIA Avocats & DAIRIA IA</div>
+                        </div>
+                    </div>
+                    <div class="hero-card-stats">
+                        <div class="stat-box">
+                            <div class="stat-number orange">10+</div>
+                            <div class="stat-label">Années au barreau</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Collaborateurs</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number orange">5</div>
+                            <div class="stat-label">Sources légales connectées</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Côté employeur</div>
+                        </div>
+                    </div>
+                    <div class="hero-card-tags">
+                        <span class="tag tag-orange">Droit social</span>
+                        <span class="tag tag-navy">Intelligence artificielle</span>
+                        <span class="tag tag-orange">LegalTech</span>
+                        <span class="tag tag-navy">Barreau de Lyon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ À PROPOS ═══════════════ -->
+    <section class="about" id="about">
+        <div class="section-inner">
+            <span class="section-label fade-up">À propos</span>
+            <h2 class="section-title fade-up">Avocat, entrepreneur,<br>bâtisseur.</h2>
+            <div class="about-grid">
+                <div class="about-text fade-up">
+                    <p>
+                        Je suis <strong>avocat en droit social côté employeur</strong>, inscrit au barreau de Lyon depuis 2015.
+                        À la tête de <strong>DAIRIA Avocats</strong>, un cabinet de 12 personnes, j'accompagne dirigeants et DRH
+                        sur l'ensemble de leurs problématiques sociales : contentieux prud'homal, restructurations,
+                        négociations collectives, conformité.
+                    </p>
+                    <p>
+                        Convaincu que le droit doit être <strong>proactif plutôt que réactif</strong>, j'ai fondé
+                        <strong>DAIRIA IA</strong> — un assistant juridique alimenté par Claude (Anthropic) et connecté
+                        en temps réel aux bases légales françaises. L'objectif : offrir aux entreprises une intelligence
+                        juridique qui anticipe les risques avant qu'ils ne deviennent des contentieux.
+                    </p>
+                    <p>
+                        Mon approche du droit est inspirée par la philosophie bergsonienne de l'action :
+                        <strong>comprendre le mouvement, pas seulement la règle figée</strong>. C'est cette vision qui
+                        guide aussi bien mon travail d'avocat que ma manière de concevoir l'IA juridique.
+                    </p>
+                </div>
+                <div class="about-milestones fade-up delay-2">
+                    <div class="milestone">
+                        <span class="milestone-year">2015</span>
+                        <div>
+                            <div class="milestone-text">Inscription au Barreau de Lyon</div>
+                            <div class="milestone-detail">Spécialisation droit social employeur</div>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <span class="milestone-year">2019</span>
+                        <div>
+                            <div class="milestone-text">Création de DAIRIA Avocats</div>
+                            <div class="milestone-detail">Cabinet 100% dédié au droit social employeur</div>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <span class="milestone-year">2024</span>
+                        <div>
+                            <div class="milestone-text">Lancement de DAIRIA IA</div>
+                            <div class="milestone-detail">Assistant juridique IA powered by Claude</div>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <span class="milestone-year">2026</span>
+                        <div>
+                            <div class="milestone-text">12 collaborateurs, 5 sources connectées</div>
+                            <div class="milestone-detail">Légifrance, BOSS, KALI, Jurisprudence, JORF</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ DAIRIA IA ═══════════════ -->
+    <section class="dairia" id="dairia">
+        <div class="section-inner">
+            <div style="text-align: center;">
+                <span class="section-label fade-up">DAIRIA IA</span>
+                <h2 class="section-title fade-up">L'intelligence juridique<br>qui anticipe.</h2>
+                <p class="section-subtitle fade-up delay-1" style="margin: 0 auto;">
+                    DAIRIA IA connecte la puissance de Claude aux bases légales françaises en temps réel.
+                    Pas un chatbot — un véritable assistant juridique qui connaît votre contexte d'entreprise.
+                </p>
+            </div>
+
+            <div class="dairia-grid">
+                <div class="dairia-card fade-up delay-1">
+                    <div class="dairia-card-icon">⚡</div>
+                    <h3>Profil entreprise contextuel</h3>
+                    <p>CCN applicable, effectif, types de contrats, échéances clés. L'IA connaît votre entreprise sans réexpliquer à chaque question.</p>
+                </div>
+                <div class="dairia-card fade-up delay-2">
+                    <div class="dairia-card-icon">🎯</div>
+                    <h3>Dashboard d'anticipation</h3>
+                    <p>Alertes scorées urgence/risque : conformité forfait jours, entretiens pro, révisions CCN. L'IA dit quoi faire avant que le problème n'arrive.</p>
+                </div>
+                <div class="dairia-card fade-up delay-3">
+                    <div class="dairia-card-icon">📡</div>
+                    <h3>Veille personnalisée push</h3>
+                    <p>Jurisprudence Cass. soc., décrets, avenants CCN, bulletins BOSS — filtrés par votre contexte, livrés directement par email.</p>
+                </div>
+            </div>
+
+            <div class="dairia-sources fade-up delay-2">
+                <span class="source-badge">📚 Légifrance</span>
+                <span class="source-badge">📋 BOSS</span>
+                <span class="source-badge">⚖️ Jurisprudence</span>
+                <span class="source-badge">📄 Conventions collectives (KALI)</span>
+                <span class="source-badge">🏛️ Journal Officiel (JORF)</span>
+            </div>
+
+            <div class="dairia-cta fade-up delay-3">
+                <a href="#contact" class="btn-primary-light">Demander une démo →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ VISION ═══════════════ -->
+    <section class="vision" id="vision">
+        <div class="section-inner">
+            <div style="text-align: center;">
+                <span class="section-label fade-up">Vision</span>
+                <h2 class="section-title fade-up">Penser le droit autrement.</h2>
+            </div>
+
+            <div class="vision-quote fade-up delay-1">
+                <blockquote>
+                    Les SIRH classiques regardent en arrière. DAIRIA IA regarde en avant.
+                    La vraie valeur n'est pas dans la gestion, elle est dans l'anticipation.
+                </blockquote>
+                <div class="attribution">— Sofiane Coly</div>
+            </div>
+
+            <div class="vision-pillars">
+                <div class="pillar fade-up delay-1">
+                    <div class="pillar-icon">🔮</div>
+                    <h3>Anticipation</h3>
+                    <p>Le droit social n'est pas un frein — c'est un levier stratégique quand on voit les risques avant qu'ils n'arrivent.</p>
+                </div>
+                <div class="pillar fade-up delay-2">
+                    <div class="pillar-icon">🔗</div>
+                    <h3>Connexion</h3>
+                    <p>La brique d'intelligence juridique qui se branche sur les SIRH existants — Payfit, Cegid, ADP. Pas un outil de plus, une couche de valeur.</p>
+                </div>
+                <div class="pillar fade-up delay-3">
+                    <div class="pillar-icon">🧠</div>
+                    <h3>Bergson meets Legal</h3>
+                    <p>Comprendre le mouvement du droit, pas seulement la règle figée. L'IA saisit le contexte vivant, pas juste le texte mort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTENUS ═══════════════ -->
+    <section class="contenus" id="contenus">
+        <div class="section-inner">
+            <span class="section-label fade-up">Contenus</span>
+            <h2 class="section-title fade-up">Idées, analyses, convictions.</h2>
+            <p class="section-subtitle fade-up delay-1">Réflexions sur le droit social, l'IA juridique et l'avenir de la profession d'avocat.</p>
+
+            <div class="contenus-grid">
+                <a class="contenu-card fade-up delay-1" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">LinkedIn</div>
+                    <h3>Pourquoi les DRH ont besoin d'un copilote IA juridique</h3>
+                    <p>Le quotidien d'un DRH est fait de micro-décisions juridiques. L'IA ne remplace pas l'avocat — elle donne la bonne info au bon moment.</p>
+                    <div class="contenu-card-footer">Lire sur LinkedIn →</div>
+                </a>
+                <a class="contenu-card fade-up delay-2" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">LinkedIn</div>
+                    <h3>L'avocat qui code : retour d'expérience sur la construction de DAIRIA IA</h3>
+                    <p>Comment passer de "je fais du droit" à "je construis un produit tech" — sans perdre son âme d'avocat.</p>
+                    <div class="contenu-card-footer">Lire sur LinkedIn →</div>
+                </a>
+                <a class="contenu-card fade-up delay-3" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">Substack</div>
+                    <h3>Bergson, le droit social et l'IA : une philosophie de l'anticipation</h3>
+                    <p>Ce que la philosophie bergsonienne du mouvement nous apprend sur la manière dont l'IA devrait aborder le droit.</p>
+                    <div class="contenu-card-footer">Lire sur Substack →</div>
+                </a>
+            </div>
+
+            <div class="contenus-cta fade-up">
+                <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener" class="btn-secondary">
+                    Suivre sur LinkedIn →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTACT ═══════════════ -->
+    <section class="contact" id="contact">
+        <div class="section-inner">
+            <span class="section-label fade-up">Contact</span>
+            <h2 class="section-title fade-up">Parlons de votre projet.</h2>
+            <p class="section-subtitle fade-up delay-1">Besoin d'un avocat en droit social ? Intéressé par DAIRIA IA ? Envie de collaborer ?</p>
+
+            <div class="contact-grid">
+                <div class="contact-info fade-up delay-1">
+                    <p>
+                        Que vous soyez dirigeant, DRH, éditeur SIRH ou simplement curieux de l'intersection
+                        droit social et IA — je suis toujours ouvert à la conversation.
+                    </p>
+                    <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener" class="contact-link">
+                        <div class="contact-link-icon">💼</div>
+                        <div>
+                            <div class="contact-link-text">LinkedIn</div>
+                            <div class="contact-link-detail">@sofianecoly</div>
+                        </div>
+                    </a>
+                    <a href="mailto:contact@dairia-avocats.com" class="contact-link">
+                        <div class="contact-link-icon">✉️</div>
+                        <div>
+                            <div class="contact-link-text">Email</div>
+                            <div class="contact-link-detail">contact@dairia-avocats.com</div>
+                        </div>
+                    </a>
+                    <a href="https://www.dairia-avocats.com" target="_blank" rel="noopener" class="contact-link">
+                        <div class="contact-link-icon">🏢</div>
+                        <div>
+                            <div class="contact-link-text">DAIRIA Avocats</div>
+                            <div class="contact-link-detail">Lyon — Barreau de Lyon</div>
+                        </div>
+                    </a>
+                </div>
+                <form class="contact-form fade-up delay-2" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" placeholder="Droit social, DAIRIA IA, Partenariat...">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Envoyer le message →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="#about">À propos</a>
+                <a href="#dairia">DAIRIA IA</a>
+                <a href="#contenus">Contenus</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+            <p class="footer-copy">
+                © 2026 Sofiane Coly. Fait avec <span class="heart">♥</span> à Lyon.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Scroll animations (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Contact form handler (placeholder)
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('.form-submit');
+            btn.textContent = '✓ Message envoyé !';
+            btn.style.background = '#22c55e';
+            setTimeout(() => {
+                btn.textContent = 'Envoyer le message →';
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        }
+
+        // Smooth reveal for hero card
+        window.addEventListener('load', () => {
+            document.querySelector('.hero-card').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
