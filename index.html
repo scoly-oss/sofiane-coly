@@ -903,6 +903,181 @@
         }
 
         /* ═══════════════════════════════════════════
+           DÉBATS — Live Feed
+           ═══════════════════════════════════════════ */
+        .debats {
+            background: var(--cream);
+        }
+
+        .debats-feed {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feed-column {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .feed-column-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feed-column-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .feed-column-icon.substack {
+            background: #FF6719;
+            color: white;
+        }
+
+        .feed-column-icon.linkedin {
+            background: #0A66C2;
+            color: white;
+        }
+
+        .feed-column-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .feed-column-header span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .feed-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feed-item {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .feed-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(232, 132, 44, 0.15);
+        }
+
+        .feed-item-date {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.5rem;
+        }
+
+        .feed-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .feed-item p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .feed-item-cta {
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--orange);
+        }
+
+        .feed-item.skeleton h4,
+        .feed-item.skeleton p,
+        .feed-item.skeleton .feed-item-date {
+            background: linear-gradient(90deg, var(--cream) 25%, #f0ede8 50%, var(--cream) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+            color: transparent;
+        }
+
+        .feed-item.skeleton .feed-item-cta { display: none; }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .feed-cta-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+
+        .feed-subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .feed-subscribe-btn.substack {
+            background: #FF6719;
+            color: white;
+        }
+
+        .feed-subscribe-btn.substack:hover {
+            background: #e55a10;
+            transform: translateY(-2px);
+        }
+
+        .feed-subscribe-btn.linkedin {
+            background: #0A66C2;
+            color: white;
+        }
+
+        .feed-subscribe-btn.linkedin:hover {
+            background: #0856a1;
+            transform: translateY(-2px);
+        }
+
+        /* ═══════════════════════════════════════════
            CONTACT
            ═══════════════════════════════════════════ */
         .contact {
@@ -1154,6 +1329,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .debats-feed {
+                grid-template-columns: 1fr;
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -1229,7 +1408,7 @@
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#dairia">DAIRIA IA</a></li>
                 <li><a href="#vision">Vision</a></li>
-                <li><a href="#contenus">Contenus</a></li>
+                <li><a href="#debats">Débats</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#contact" class="cta-nav">Parlons-en →</a></li>
             </ul>
@@ -1264,11 +1443,6 @@
                         <div class="hero-photo-stat">
                             <div class="stat-number orange">10+</div>
                             <div class="stat-label">Années au barreau</div>
-                        </div>
-                        <div class="hero-photo-divider"></div>
-                        <div class="hero-photo-stat">
-                            <div class="stat-number">12</div>
-                            <div class="stat-label">Collaborateurs</div>
                         </div>
                         <div class="hero-photo-divider"></div>
                         <div class="hero-photo-stat">
@@ -1333,7 +1507,7 @@
                     <div class="milestone">
                         <span class="milestone-year">2026</span>
                         <div>
-                            <div class="milestone-text">12 collaborateurs, 5 sources connectées</div>
+                            <div class="milestone-text">5 sources de données connectées</div>
                             <div class="milestone-detail">Légifrance, BOSS, KALI, Jurisprudence, JORF</div>
                         </div>
                     </div>
@@ -1360,10 +1534,6 @@
                     <div class="track-card-tagline">Le cabinet qui a fusionné droit et paie</div>
                     <p>Premier cabinet en France à intégrer un département paie. On va dans les bulletins, les DSN, les paramétrages. Et quand on trouve un problème, on le corrige.</p>
                     <div class="track-card-metrics">
-                        <div class="track-metric">
-                            <div class="track-metric-value orange">12</div>
-                            <div class="track-metric-label">collaborateurs</div>
-                        </div>
                         <div class="track-metric">
                             <div class="track-metric-value">100%</div>
                             <div class="track-metric-label">côté employeur</div>
@@ -1501,43 +1671,109 @@
         </div>
     </section>
 
-    <!-- ═══════════════ CONTENUS ═══════════════ -->
+    <!-- ═══════════════ DÉBATS — Feed Live ═══════════════ -->
+    <section class="debats" id="debats">
+        <div class="section-inner">
+            <span class="section-label fade-up">Dernières publications</span>
+            <h2 class="section-title fade-up">Réagissez, challengez,<br>rejoignez le débat.</h2>
+            <p class="section-subtitle fade-up delay-1">Droit social, IA, entrepreneuriat — chaque semaine je publie, je prends position. Vous n'êtes pas d'accord ? Tant mieux. Dites-le moi.</p>
+
+            <div class="debats-feed fade-up delay-2">
+                <!-- Substack Feed -->
+                <div class="feed-column">
+                    <div class="feed-column-header">
+                        <div class="feed-column-icon substack">S</div>
+                        <div>
+                            <h3>Newsletter Substack</h3>
+                            <span>Chaque vendredi — droit social sans filtre</span>
+                        </div>
+                    </div>
+                    <div class="feed-items" id="substack-feed">
+                        <a class="feed-item skeleton" href="#">
+                            <div class="feed-item-date">Chargement...</div>
+                            <h4>Chargement du dernier article...</h4>
+                            <p>Connexion au flux Substack en cours</p>
+                        </a>
+                        <a class="feed-item skeleton" href="#">
+                            <div class="feed-item-date">Chargement...</div>
+                            <h4>Chargement de l'article...</h4>
+                            <p>Connexion au flux Substack en cours</p>
+                        </a>
+                        <a class="feed-item skeleton" href="#">
+                            <div class="feed-item-date">Chargement...</div>
+                            <h4>Chargement de l'article...</h4>
+                            <p>Connexion au flux Substack en cours</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- LinkedIn Feed -->
+                <div class="feed-column">
+                    <div class="feed-column-header">
+                        <div class="feed-column-icon linkedin">in</div>
+                        <div>
+                            <h3>Posts LinkedIn</h3>
+                            <span>Prises de position quotidiennes</span>
+                        </div>
+                    </div>
+                    <div class="feed-items" id="linkedin-feed">
+                        <a class="feed-item" href="https://www.linkedin.com/in/sofianecoly/recent-activity/all/" target="_blank" rel="noopener">
+                            <div class="feed-item-date">En continu</div>
+                            <h4>Droit social, IA, paie, conformité — je publie chaque jour sur LinkedIn</h4>
+                            <p>Mes analyses sur l'actualité juridique, les coulisses de DAIRIA, les questions RH que personne ne pose. Réagissez en commentaire, je réponds à tout le monde.</p>
+                            <div class="feed-item-cta">Voir mes posts et réagir →</div>
+                        </a>
+                        <a class="feed-item" href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">
+                            <div class="feed-item-date">Rejoignez le débat</div>
+                            <h4>Vous avez un avis différent ? C'est exactement ce que je cherche.</h4>
+                            <p>Les commentaires sous mes posts sont devenus un vrai espace de discussion entre DRH, avocats, experts-comptables et entrepreneurs. Venez confronter vos idées.</p>
+                            <div class="feed-item-cta">Suivre sur LinkedIn →</div>
+                        </a>
+                        <a class="feed-item" href="https://www.youtube.com/@DAIRIAAVOCATS" target="_blank" rel="noopener">
+                            <div class="feed-item-date">YouTube</div>
+                            <h4>Les vidéos DAIRIA Avocats — droit social en format long</h4>
+                            <p>Décryptage de décisions de justice, guides pratiques, interviews. Du fond, pas du buzz.</p>
+                            <div class="feed-item-cta">Regarder sur YouTube →</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feed-cta-row fade-up">
+                <a href="https://sofianecoly.substack.com" target="_blank" rel="noopener" class="feed-subscribe-btn substack">
+                    📨 S'abonner à la newsletter
+                </a>
+                <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener" class="feed-subscribe-btn linkedin">
+                    💬 Suivre sur LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CONTENUS / PRODUITS ═══════════════ -->
     <section class="contenus" id="contenus">
         <div class="section-inner">
-            <span class="section-label fade-up">Rejoignez la conversation</span>
-            <h2 class="section-title fade-up">Ce que je construis,<br>ce que je partage.</h2>
-            <p class="section-subtitle fade-up delay-1">Chaque semaine, tout ce qu'on apprend en construisant un cabinet, un produit tech et des outils pour les DRH. Réagissez, challengez, partagez.</p>
+            <span class="section-label fade-up">Les outils</span>
+            <h2 class="section-title fade-up">Ce que je construis.</h2>
 
             <div class="contenus-grid">
-                <a class="contenu-card fade-up delay-1" href="https://substack.com/@coly354103" target="_blank" rel="noopener">
-                    <div class="contenu-card-type">Newsletter</div>
-                    <h3>Newsletter droit social — chaque vendredi</h3>
-                    <p>Chaque semaine, tout ce qu'on apprend au cabinet : jurisprudence, conformité, paie, URSSAF. Du concret, pas de la doctrine.</p>
-                    <div class="contenu-card-footer">S'abonner sur Substack →</div>
-                </a>
-                <a class="contenu-card fade-up delay-2" href="https://dairia.ai" target="_blank" rel="noopener">
+                <a class="contenu-card fade-up delay-1" href="https://dairia.ai" target="_blank" rel="noopener">
                     <div class="contenu-card-type">Produit</div>
                     <h3>DAIRIA IA — L'IA juridique à 90€/mois</h3>
                     <p>Branché sur Légifrance, BOSS, conventions collectives et des milliers de mémos pratiques. La réponse en temps réel, pas en 48h.</p>
                     <div class="contenu-card-footer">Découvrir dairia.ai →</div>
                 </a>
-                <a class="contenu-card fade-up delay-3" href="https://gerermesatmp.com" target="_blank" rel="noopener">
+                <a class="contenu-card fade-up delay-2" href="https://gerermesatmp.com" target="_blank" rel="noopener">
                     <div class="contenu-card-type">Outil</div>
                     <h3>GérerMesATMP — Optimisez vos taux AT/MP</h3>
                     <p>L'outil pour comprendre et optimiser vos cotisations accidents du travail et maladies professionnelles. Un levier sous-exploité par 90% des entreprises.</p>
                     <div class="contenu-card-footer">Découvrir gerermesatmp.com →</div>
                 </a>
-            </div>
-
-            <div class="contenus-cta fade-up" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener" class="btn-secondary">
-                    Suivre sur LinkedIn →
-                </a>
-                <a href="https://www.youtube.com/@DAIRIAAVOCATS" target="_blank" rel="noopener" class="btn-secondary">
-                    YouTube →
-                </a>
-                <a href="https://substack.com/@coly354103" target="_blank" rel="noopener" class="btn-secondary">
-                    Newsletter Substack →
+                <a class="contenu-card fade-up delay-3" href="https://dairia-avocats.com" target="_blank" rel="noopener">
+                    <div class="contenu-card-type">Cabinet</div>
+                    <h3>DAIRIA Avocats — Droit social côté employeur</h3>
+                    <p>Le cabinet qui combine expertise juridique et technologie. Conformité, contentieux, restructuration, URSSAF.</p>
+                    <div class="contenu-card-footer">Découvrir le cabinet →</div>
                 </a>
             </div>
         </div>
@@ -1615,7 +1851,7 @@
             <div class="footer-links">
                 <a href="#about">À propos</a>
                 <a href="#dairia">DAIRIA IA</a>
-                <a href="#contenus">Contenus</a>
+                <a href="#debats">Débats</a>
                 <a href="#contact">Contact</a>
                 <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="https://www.youtube.com/@DAIRIAAVOCATS" target="_blank" rel="noopener">YouTube</a>
@@ -1675,6 +1911,67 @@
         window.addEventListener('load', () => {
             document.querySelector('.hero-card').classList.add('visible');
         });
+
+        // ═══════════════ Substack RSS Feed ═══════════════
+        async function loadSubstackFeed() {
+            const container = document.getElementById('substack-feed');
+            const FEED_URL = 'https://sofianecoly.substack.com/feed';
+            const API_URL = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(FEED_URL)}&count=4`;
+
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data.status !== 'ok' || !data.items?.length) {
+                    showFallbackFeed(container);
+                    return;
+                }
+
+                container.innerHTML = data.items.slice(0, 4).map(item => {
+                    const date = new Date(item.pubDate);
+                    const formattedDate = date.toLocaleDateString('fr-FR', {
+                        day: 'numeric', month: 'long', year: 'numeric'
+                    });
+                    // Strip HTML tags and truncate
+                    const desc = item.description
+                        .replace(/<[^>]*>/g, '')
+                        .substring(0, 160) + '...';
+
+                    return `
+                        <a class="feed-item" href="${item.link}" target="_blank" rel="noopener">
+                            <div class="feed-item-date">${formattedDate}</div>
+                            <h4>${item.title}</h4>
+                            <p>${desc}</p>
+                            <div class="feed-item-cta">Lire et réagir →</div>
+                        </a>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.warn('RSS feed unavailable:', err);
+                showFallbackFeed(container);
+            }
+        }
+
+        function showFallbackFeed(container) {
+            container.innerHTML = `
+                <a class="feed-item" href="https://sofianecoly.substack.com" target="_blank" rel="noopener">
+                    <div class="feed-item-date">Chaque vendredi</div>
+                    <h4>Newsletter droit social — abonnez-vous</h4>
+                    <p>Jurisprudence, conformité, paie, URSSAF. Ce qu'on apprend au cabinet, sans filtre. Réagissez, challengez.</p>
+                    <div class="feed-item-cta">S'abonner sur Substack →</div>
+                </a>
+                <a class="feed-item" href="https://sofianecoly.substack.com" target="_blank" rel="noopener">
+                    <div class="feed-item-date">Rejoingnez le débat</div>
+                    <h4>+150 abonnés qui réagissent chaque semaine</h4>
+                    <p>DRH, avocats, experts-comptables, entrepreneurs. Les meilleures discussions naissent dans les commentaires.</p>
+                    <div class="feed-item-cta">Découvrir la newsletter →</div>
+                </a>
+            `;
+        }
+
+        // Load feed on page ready
+        loadSubstackFeed();
     </script>
 </body>
 </html>
