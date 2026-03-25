@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Sofiane Coly | Tribunes, IA & Droit Social</title>
+    <meta name="description" content="Tribunes, réflexions et retours d'expérience de Sofiane Coly — avocat en droit social, fondateur de DAIRIA IA. IA juridique, entrepreneuriat, coulisses du métier.">
+    <meta property="og:title" content="Blog — Sofiane Coly">
+    <meta property="og:description" content="Tribunes, réflexions et retours d'expérience sur l'IA juridique, l'entrepreneuriat et le droit social.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <link rel="canonical" href="https://sofianecoly.com/blog.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #e8842c;
+            --orange-light: #F5A623;
+            --navy: #1e2d3d;
+            --navy-light: #2a3f52;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --text-primary: #1e2d3d;
+            --text-secondary: #5a6a7a;
+            --text-light: #8a96a3;
+            --border: rgba(30, 45, 61, 0.08);
+            --gradient-orange: linear-gradient(135deg, #e8842c 0%, #F5A623 100%);
+            --shadow-sm: 0 1px 3px rgba(30, 45, 61, 0.06);
+            --shadow-md: 0 4px 20px rgba(30, 45, 61, 0.08);
+            --shadow-lg: 0 8px 40px rgba(30, 45, 61, 0.12);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            font-size: 1.2rem; font-weight: 700;
+            color: var(--navy); text-decoration: none;
+        }
+        .nav-logo span { color: var(--orange); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9rem; font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--orange); }
+        .nav-links .cta-nav {
+            background: var(--gradient-orange); color: white !important;
+            padding: 0.5rem 1.25rem; border-radius: 50px; font-weight: 600;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--cream) 0%, #fff 100%);
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800; letter-spacing: -1.5px;
+            color: var(--navy); margin-bottom: 1rem;
+        }
+        .hero h1 span { color: var(--orange); }
+        .hero p {
+            font-size: 1.15rem; color: var(--text-secondary);
+            max-width: 650px; margin: 0 auto 1.5rem;
+        }
+        .hero .count {
+            font-size: 0.9rem; color: var(--text-light);
+        }
+
+        /* Grid */
+        .blog-section {
+            max-width: 1100px; margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Card */
+        .blog-card {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column;
+            text-decoration: none; color: inherit;
+        }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange);
+        }
+        .blog-card img {
+            width: 100%; height: 200px;
+            object-fit: cover;
+        }
+        .blog-card-body {
+            padding: 1.5rem; flex: 1;
+            display: flex; flex-direction: column;
+        }
+        .blog-card-date {
+            font-size: 0.8rem; color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        .blog-card h2 {
+            font-size: 1.15rem; font-weight: 700;
+            color: var(--navy); margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+        .blog-card:hover h2 { color: var(--orange); }
+        .blog-card p {
+            font-size: 0.9rem; color: var(--text-secondary);
+            line-height: 1.6; flex: 1;
+        }
+        .blog-card-cta {
+            margin-top: 1rem; padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem; font-weight: 600;
+            color: var(--orange);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex; justify-content: center;
+            align-items: center; gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        .pagination a, .pagination span {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 2.5rem; height: 2.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 10px; font-weight: 600;
+            font-size: 0.9rem; text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .pagination a {
+            background: var(--white); color: var(--navy);
+            border: 1px solid var(--border);
+        }
+        .pagination a:hover {
+            background: var(--navy); color: var(--white);
+            border-color: var(--navy);
+        }
+        .pagination .active {
+            background: var(--navy); color: var(--white);
+            box-shadow: 0 4px 12px rgba(30, 45, 61, 0.2);
+        }
+        .pagination .dots { color: var(--text-light); }
+        .pagination .disabled {
+            background: var(--cream); color: var(--text-light);
+            border: 1px solid var(--border); cursor: not-allowed;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center; padding: 4rem 2rem;
+            color: var(--text-light); font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light); font-size: 0.85rem;
+        }
+        footer a { color: var(--orange); text-decoration: none; }
+
+        @media (max-width: 1024px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .blog-section { padding: 2rem 1.5rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">Sofiane <span>Coly</span></a>
+            <ul class="nav-links">
+                <li><a href="/#about">À propos</a></li>
+                <li><a href="/#dairia">DAIRIA IA</a></li>
+                <li><a href="/blog.html" style="color: var(--orange);">Blog</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/#contact" class="cta-nav">Parlons-en →</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Mon <span>Blog</span></h1>
+        <p>Tribunes, réflexions et retours d'expérience — IA juridique, entrepreneuriat, coulisses du droit social côté employeur.</p>
+        <div class="count" id="article-count"></div>
+    </section>
+
+    <section class="blog-section">
+        <div class="blog-grid" id="blog-grid">
+            <div class="loading">Chargement des articles...</div>
+        </div>
+        <div class="pagination" id="pagination"></div>
+    </section>
+
+    <footer>
+        <p>© 2025 Sofiane Coly — <a href="https://dairia-avocats.com">DAIRIA Avocats</a> · <a href="https://dairia.ai">DAIRIA IA</a> · <a href="https://www.gerermesatmp.com">GérerMesATMP</a></p>
+    </footer>
+
+    <script>
+        const WP_API = 'https://dairia-blog.bl-nk.io/wp-json/wp/v2';
+        const CATEGORY_ID = 871; // Sofiane Coly
+        const PER_PAGE = 12;
+
+        function decodeEntities(text) {
+            const el = document.createElement('textarea');
+            el.innerHTML = text;
+            return el.value;
+        }
+
+        function formatDate(dateStr) {
+            return new Date(dateStr).toLocaleDateString('fr-FR', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
+        }
+
+        function cleanExcerpt(html) {
+            return decodeEntities(html.replace(/<[^>]*>/g, '').replace(/\[&hellip;\]/g, '...').replace(/&hellip;/g, '...').trim());
+        }
+
+        function getFeaturedImage(post) {
+            try {
+                return post._embedded['wp:featuredmedia'][0].source_url;
+            } catch { return null; }
+        }
+
+        async function loadBlog(page = 1) {
+            const grid = document.getElementById('blog-grid');
+            const pagination = document.getElementById('pagination');
+            const countEl = document.getElementById('article-count');
+
+            grid.innerHTML = '<div class="loading">Chargement...</div>';
+
+            try {
+                const res = await fetch(`${WP_API}/posts?_embed&per_page=${PER_PAGE}&page=${page}&categories=${CATEGORY_ID}&orderby=date&order=desc`);
+                const total = parseInt(res.headers.get('X-WP-Total') || '0');
+                const totalPages = parseInt(res.headers.get('X-WP-TotalPages') || '0');
+                const posts = await res.json();
+
+                countEl.textContent = `${total} article${total > 1 ? 's' : ''} publié${total > 1 ? 's' : ''}`;
+
+                if (posts.length === 0) {
+                    grid.innerHTML = '<div class="loading">Aucun article pour le moment.</div>';
+                    return;
+                }
+
+                grid.innerHTML = posts.map(post => {
+                    const img = getFeaturedImage(post);
+                    const excerpt = cleanExcerpt(post.excerpt.rendered).substring(0, 140);
+                    const title = decodeEntities(post.title.rendered);
+                    return `
+                        <a class="blog-card" href="/article.html?slug=${post.slug}">
+                            ${img ? `<img src="${img}" alt="${title}" loading="lazy">` : ''}
+                            <div class="blog-card-body">
+                                <div class="blog-card-date">${formatDate(post.date)}</div>
+                                <h2>${title}</h2>
+                                <p>${excerpt}${excerpt.length >= 140 ? '...' : ''}</p>
+                                <div class="blog-card-cta">Lire l'article →</div>
+                            </div>
+                        </a>
+                    `;
+                }).join('');
+
+                // Pagination
+                if (totalPages > 1) {
+                    let html = '';
+                    html += page > 1
+                        ? `<a href="#" onclick="loadBlog(${page-1});return false;">← Précédent</a>`
+                        : `<span class="disabled">← Précédent</span>`;
+
+                    for (let i = 1; i <= totalPages; i++) {
+                        if (i === page) {
+                            html += `<span class="active">${i}</span>`;
+                        } else if (i === 1 || i === totalPages || Math.abs(i - page) <= 1) {
+                            html += `<a href="#" onclick="loadBlog(${i});return false;">${i}</a>`;
+                        } else if (Math.abs(i - page) === 2) {
+                            html += `<span class="dots">...</span>`;
+                        }
+                    }
+
+                    html += page < totalPages
+                        ? `<a href="#" onclick="loadBlog(${page+1});return false;">Suivant →</a>`
+                        : `<span class="disabled">Suivant →</span>`;
+
+                    pagination.innerHTML = html;
+                } else {
+                    pagination.innerHTML = '';
+                }
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (err) {
+                grid.innerHTML = '<div class="loading">Erreur de chargement. Réessayez plus tard.</div>';
+                console.error(err);
+            }
+        }
+
+        loadBlog();
+    </script>
+</body>
+</html>
