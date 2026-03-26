@@ -3,13 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — Sofiane Coly | Tribunes, IA & Droit Social</title>
-    <meta name="description" content="Tribunes, réflexions et retours d'expérience de Sofiane Coly — avocat en droit social, fondateur de DAIRIA IA. IA juridique, entrepreneuriat, coulisses du métier.">
-    <meta property="og:title" content="Blog — Sofiane Coly">
+    <title>Blog — Sofiane Coly | IA juridique, droit social, entrepreneuriat</title>
+    <meta name="description" content="Blog de Sofiane Coly, avocat en droit social à Lyon. Tribunes et analyses sur l'IA juridique, le droit du travail côté employeur et l'entrepreneuriat.">
+    <link rel="canonical" href="https://sofianecoly.com/blog.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog — Sofiane Coly | IA juridique, droit social, entrepreneuriat">
     <meta property="og:description" content="Tribunes, réflexions et retours d'expérience sur l'IA juridique, l'entrepreneuriat et le droit social.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
-    <link rel="canonical" href="https://sofianecoly.com/blog.html">
+    <meta property="og:url" content="https://sofianecoly.com/blog.html">
+    <meta property="og:image" content="https://sofianecoly.com/assets/og-image.jpg">
+    <meta property="og:site_name" content="Sofiane Coly">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog — Sofiane Coly | IA juridique, droit social, entrepreneuriat">
+    <meta name="twitter:description" content="Tribunes et analyses sur l'IA juridique, le droit du travail et l'entrepreneuriat.">
+    <meta name="twitter:image" content="https://sofianecoly.com/assets/og-image.jpg">
+
+    <!-- JSON-LD CollectionPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Blog — Sofiane Coly",
+        "description": "Blog de Sofiane Coly, avocat en droit social à Lyon. Tribunes et analyses sur l'IA juridique, le droit du travail côté employeur et l'entrepreneuriat.",
+        "url": "https://sofianecoly.com/blog.html",
+        "author": {
+            "@type": "Person",
+            "name": "Sofiane Coly",
+            "url": "https://sofianecoly.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Sofiane Coly"
+        }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,8 +267,23 @@
         <div class="pagination" id="pagination"></div>
     </section>
 
+    <!-- Newsletter -->
+    <section style="background: var(--navy); padding: 3.5rem 2rem;">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 style="color: white; font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem;">Ne manquez aucun article</h2>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 1.5rem;">Recevez mes analyses en droit social, IA juridique et entrepreneuriat directement dans votre boîte mail.</p>
+            <form id="newsletter-form-blog" style="display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto;">
+                <input type="email" id="newsletter-email-blog" placeholder="votre@email.com" required style="flex: 1; padding: 0.85rem 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: white; font-size: 0.95rem; font-family: inherit; outline: none;">
+                <button type="submit" style="background: linear-gradient(135deg, #e8842c 0%, #F5A623 100%); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; cursor: pointer; white-space: nowrap; font-family: inherit;">S'abonner</button>
+            </form>
+            <p id="newsletter-msg-blog" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1rem; min-height: 1.2rem;"></p>
+            <p style="color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 0.5rem;">En vous inscrivant, vous acceptez notre <a href="/politique-confidentialite.html" style="color: #e8842c; text-decoration: underline;">politique de confidentialité</a>.</p>
+        </div>
+    </section>
+
     <footer>
         <p>© 2025 Sofiane Coly — <a href="https://dairia-avocats.com">DAIRIA Avocats</a> · <a href="https://dairia.ai">DAIRIA IA</a> · <a href="https://www.gerermesatmp.com">GérerMesATMP</a></p>
+        <p style="margin-top: 0.75rem;"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/politique-confidentialite.html">Politique de confidentialité</a></p>
     </footer>
 
     <script>
@@ -339,6 +385,35 @@
         }
 
         loadBlog();
+
+        // Newsletter form
+        document.getElementById('newsletter-form-blog').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email-blog').value.trim();
+            const msg = document.getElementById('newsletter-msg-blog');
+            if (!email) return;
+            msg.textContent = 'Inscription en cours...';
+            msg.style.color = 'rgba(255,255,255,0.6)';
+            try {
+                const res = await fetch('https://enclair.media/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                if (res.ok) {
+                    msg.textContent = 'Merci ! Vous êtes inscrit.';
+                    msg.style.color = '#22c55e';
+                    document.getElementById('newsletter-email-blog').value = '';
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    msg.textContent = data.error || 'Erreur, réessayez plus tard.';
+                    msg.style.color = '#ef4444';
+                }
+            } catch {
+                msg.textContent = 'Erreur réseau, réessayez plus tard.';
+                msg.style.color = '#ef4444';
+            }
+        });
     </script>
 </body>
 </html>

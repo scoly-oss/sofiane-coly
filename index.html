@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sofiane Coly — Avocat en droit social & Fondateur de DAIRIA IA</title>
-    <meta name="description" content="Sofiane Coly, avocat en droit social côté employeur, CEO de DAIRIA Avocats (Lyon) et fondateur de DAIRIA IA — l'assistant juridique IA connecté aux bases légales françaises.">
+    <meta name="description" content="Sofiane Coly, avocat en droit social au Barreau de Lyon. Fondateur de DAIRIA Avocats, DAIRIA IA et En Clair. Droit du travail, paie et sécurité sociale côté employeur.">
     <meta name="author" content="Sofiane Coly">
 
     <!-- Open Graph -->
@@ -14,11 +14,13 @@
     <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://sofianecoly.com/">
     <meta property="og:image" content="https://sofianecoly.com/assets/og-image.jpg">
+    <meta property="og:site_name" content="Sofiane Coly">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sofiane Coly — Avocat & Fondateur de DAIRIA IA">
     <meta name="twitter:description" content="Avocat en droit social côté employeur. CEO de DAIRIA Avocats. Fondateur de DAIRIA IA.">
+    <meta name="twitter:image" content="https://sofianecoly.com/assets/og-image.jpg">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://sofianecoly.com/">
@@ -2159,6 +2161,20 @@
         </div>
     </section>
 
+    <!-- ═══════════════ NEWSLETTER ═══════════════ -->
+    <section id="newsletter-section" style="background: var(--navy); padding: 4rem 2rem;">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 style="color: white; font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem;">Restez informé</h2>
+            <p style="color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 2rem; line-height: 1.6;">Recevez chaque semaine mes analyses en droit social, IA juridique et entrepreneuriat. Pas de spam, du contenu utile.</p>
+            <form id="newsletter-form-home" style="display: flex; gap: 0.75rem; max-width: 480px; margin: 0 auto;">
+                <input type="email" id="newsletter-email-home" placeholder="votre@email.com" required style="flex: 1; padding: 0.85rem 1.2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: white; font-size: 0.95rem; font-family: inherit; outline: none;">
+                <button type="submit" style="background: var(--gradient-orange); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; cursor: pointer; white-space: nowrap; font-family: inherit; transition: transform 0.2s;">S'abonner</button>
+            </form>
+            <p id="newsletter-msg-home" style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 1rem; min-height: 1.2rem;"></p>
+            <p style="color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 0.5rem;">En vous inscrivant, vous acceptez notre <a href="/politique-confidentialite.html" style="color: var(--orange); text-decoration: underline;">politique de confidentialité</a>.</p>
+        </div>
+    </section>
+
     <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer>
         <div class="footer-inner">
@@ -2171,6 +2187,10 @@
                 <a href="https://www.linkedin.com/in/sofianecoly/" target="_blank" rel="noopener">LinkedIn</a>
                 <a href="https://www.youtube.com/@DAIRIAAVOCATS" target="_blank" rel="noopener">YouTube</a>
                 <a href="https://substack.com/@coly354103" target="_blank" rel="noopener">Substack</a>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem;">
+                <a href="/mentions-legales.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem;">Mentions légales</a>
+                <a href="/politique-confidentialite.html" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem;">Politique de confidentialité</a>
             </div>
             <p class="footer-copy">
                 © 2026 Sofiane Coly. Fait avec <span class="heart">♥</span> à Lyon.
@@ -2287,6 +2307,35 @@
 
         // Load feed on page ready
         loadSubstackFeed();
+
+        // Newsletter form
+        document.getElementById('newsletter-form-home').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email-home').value.trim();
+            const msg = document.getElementById('newsletter-msg-home');
+            if (!email) return;
+            msg.textContent = 'Inscription en cours...';
+            msg.style.color = 'rgba(255,255,255,0.6)';
+            try {
+                const res = await fetch('https://enclair.media/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                if (res.ok) {
+                    msg.textContent = 'Merci ! Vous êtes inscrit.';
+                    msg.style.color = '#22c55e';
+                    document.getElementById('newsletter-email-home').value = '';
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    msg.textContent = data.error || 'Erreur, réessayez plus tard.';
+                    msg.style.color = '#ef4444';
+                }
+            } catch {
+                msg.textContent = 'Erreur réseau, réessayez plus tard.';
+                msg.style.color = '#ef4444';
+            }
+        });
     </script>
 </body>
 </html>

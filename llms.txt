@@ -1,44 +1,19 @@
 # Sofiane Coly
 
-> Avocat au Barreau de Lyon, spécialisé en droit du travail, droit de la paie et sécurité sociale, exclusivement côté employeur. Fondateur de DAIRIA Avocats, DAIRIA IA et GérerMesATMP.
+> Avocat en droit social au Barreau de Lyon. Fondateur de DAIRIA Avocats, DAIRIA IA et En Clair.
 
-## Qui est Sofiane Coly ?
+## Qui est Sofiane Coly
+Sofiane Coly est avocat spécialisé en droit du travail, droit de la paie et protection sociale côté employeur. Il dirige DAIRIA Avocats, un cabinet qui fusionne expertise juridique et intelligence artificielle. Il est également le créateur de DAIRIA IA, un assistant juridique IA pour les employeurs, et d'En Clair, un média juridique pour dirigeants.
 
-Sofiane Coly est un avocat français inscrit au Barreau de Lyon depuis plus de 10 ans, spécialisé en droit social côté employeur. Il dirige le cabinet DAIRIA Avocats et a fondé deux outils technologiques dédiés aux entreprises : DAIRIA IA (assistant juridique IA) et GérerMesATMP (gestion des accidents du travail).
+## Projets
+- DAIRIA Avocats (https://dairia-avocats.com) : cabinet de droit social côté employeur
+- DAIRIA IA (https://dairia.ai) : assistant IA juridique à 90€/mois
+- En Clair (https://enclair.media) : média juridique hebdomadaire pour dirigeants, DRH et experts-comptables
 
-## Expertises
-
-- Droit du travail côté employeur (conseil et contentieux)
-- Droit de la paie et optimisation des charges sociales
-- Contrôle URSSAF (préparation, assistance, contestation)
-- Accidents du travail et maladies professionnelles (AT/MP)
-- Contentieux prud'homal (défense employeur)
-- Intelligence artificielle appliquée au droit social
-
-## Projets fondés
-
-### DAIRIA Avocats
-Cabinet d'avocats en droit social côté employeur basé à Lyon.
-- Site : https://dairia-avocats.com
-- Blog : https://dairia-avocats.com/blog (100+ articles juridiques sourcés)
-- Offres : missions ponctuelles, abonnement illimité à forfait, audit social, formations
-
-### DAIRIA IA
-Assistant juridique IA spécialisé en droit du travail pour employeurs, experts-comptables et RH.
-- Site : https://dairia.ai
-- Tarif : 90€ HT/mois, 7 jours d'essai gratuit
-- Supervisé par les avocats du cabinet DAIRIA Avocats
-
-### GérerMesATMP
-Plateforme SaaS de gestion des accidents du travail et maladies professionnelles pour optimiser les coûts de cotisations AT/MP.
-- Site : https://www.gerermesatmp.com
-- Fonctionnalités : suivi dossiers, alertes délais, contestation AT/MP, optimisation taux
+## Expertise
+Droit du travail, droit de la paie, contrôle URSSAF, AT/MP, licenciement, CSE, négociation collective, forfait jours, durée du travail, protection sociale
 
 ## Contact
-
-- Site personnel : https://sofianecoly.com
 - Email : s.coly@dairia-avocats.com
-- Téléphone : +33 6 72 42 24 86
-- LinkedIn : https://fr.linkedin.com/in/sofiane-coly-8b546089
-- Newsletter : https://sofianecoly.substack.com
-- Adresse : 65 rue Jacques-Louis Hénon, 69004 Lyon, France
+- Site : https://sofianecoly.com
+- LinkedIn : https://www.linkedin.com/in/sofiane-coly/

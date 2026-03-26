@@ -4,7 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article — Sofiane Coly</title>
-    <meta name="description" content="">
+    <meta name="description" content="Article de Sofiane Coly, avocat en droit social au Barreau de Lyon. Fondateur de DAIRIA Avocats, DAIRIA IA et En Clair.">
+    <link rel="canonical" href="https://sofianecoly.com/article.html">
+
+    <!-- Open Graph (defaults, overridden by JS) -->
+    <meta property="og:title" content="Article — Sofiane Coly">
+    <meta property="og:description" content="Article de Sofiane Coly, avocat en droit social à Lyon.">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://sofianecoly.com/article.html">
+    <meta property="og:image" content="https://sofianecoly.com/assets/og-image.jpg">
+    <meta property="og:site_name" content="Sofiane Coly">
+
+    <!-- Twitter (defaults, overridden by JS) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Article — Sofiane Coly">
+    <meta name="twitter:description" content="Article de Sofiane Coly, avocat en droit social à Lyon.">
+    <meta name="twitter:image" content="https://sofianecoly.com/assets/og-image.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -86,6 +103,7 @@
 
     <footer>
         <p>© 2025 Sofiane Coly — <a href="https://dairia-avocats.com">DAIRIA Avocats</a> · <a href="https://dairia.ai">DAIRIA IA</a> · <a href="https://www.gerermesatmp.com">GérerMesATMP</a></p>
+        <p style="margin-top: 0.75rem;"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/politique-confidentialite.html">Politique de confidentialité</a></p>
     </footer>
 
     <script>
@@ -123,7 +141,38 @@
                 const url = encodeURIComponent(window.location.href);
 
                 document.title = `${title} — Sofiane Coly`;
-                document.querySelector('meta[name="description"]').content = decodeEntities(post.excerpt.rendered.replace(/<[^>]*>/g, '')).substring(0, 160);
+                const excerpt = decodeEntities(post.excerpt.rendered.replace(/<[^>]*>/g, '')).substring(0, 160);
+                document.querySelector('meta[name="description"]').content = excerpt;
+
+                // Update OG and Twitter meta
+                const articleUrl = `https://sofianecoly.com/article.html?slug=${post.slug}`;
+                document.querySelector('link[rel="canonical"]').href = articleUrl;
+                document.querySelector('meta[property="og:title"]').content = `${title} — Sofiane Coly`;
+                document.querySelector('meta[property="og:description"]').content = excerpt;
+                document.querySelector('meta[property="og:url"]').content = articleUrl;
+                if (img) {
+                    document.querySelector('meta[property="og:image"]').content = img;
+                    document.querySelector('meta[name="twitter:image"]').content = img;
+                }
+                document.querySelector('meta[name="twitter:title"]').content = `${title} — Sofiane Coly`;
+                document.querySelector('meta[name="twitter:description"]').content = excerpt;
+
+                // Inject JSON-LD Article
+                const jsonLd = document.createElement('script');
+                jsonLd.type = 'application/ld+json';
+                jsonLd.textContent = JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": title,
+                    "description": excerpt,
+                    "image": img || "https://sofianecoly.com/assets/og-image.jpg",
+                    "datePublished": post.date,
+                    "dateModified": post.modified,
+                    "author": { "@type": "Person", "name": "Sofiane Coly", "url": "https://sofianecoly.com" },
+                    "publisher": { "@type": "Person", "name": "Sofiane Coly" },
+                    "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl }
+                });
+                document.head.appendChild(jsonLd);
 
                 document.getElementById('article-container').innerHTML = `
                     <section class="article-hero">
