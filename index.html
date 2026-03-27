@@ -1490,6 +1490,80 @@
             .hero-photo-overlay .stat-number { font-size: 1.1rem; }
         }
     </style>
+
+    <!-- JSON-LD FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Qui est Sofiane Coly ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Avocat en droit social au Barreau de Lyon, fondateur de DAIRIA Avocats et créateur de DAIRIA IA."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quels sont les domaines d'expertise de Sofiane Coly ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Droit du travail, droit de la paie, protection sociale, contrôles URSSAF, AT/MP, CSE, négociation collective."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Sofiane Coly défend-il les salariés ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non, le cabinet DAIRIA Avocats accompagne exclusivement les employeurs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que DAIRIA IA ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un assistant juridique alimenté par l'intelligence artificielle, conçu pour les employeurs, disponible 24/7 à 90\u00a0€ HT/mois."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que GérerMesATMP ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Une plateforme de gestion des accidents du travail et maladies professionnelles pour les employeurs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce qu'En Clair ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Un média juridique hebdomadaire gratuit pour dirigeants, DRH et experts-comptables."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment prendre rendez-vous ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Par email à s.coly@dairia-avocats.com ou par téléphone au 06 72 42 24 86."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Où est situé le cabinet ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "142 rue Duguesclin, 69006 Lyon."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -2180,6 +2254,144 @@
             <p style="color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 0.5rem;">En vous inscrivant, vous acceptez notre <a href="/politique-confidentialite.html" style="color: var(--orange); text-decoration: underline;">politique de confidentialité</a>.</p>
         </div>
     </section>
+
+    <!-- ═══════════════ FAQ ═══════════════ -->
+    <section id="faq" style="max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem 2rem;">
+        <h2 style="font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: #fff;">Questions fréquentes</h2>
+        <div id="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Qui est Sofiane Coly ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Avocat en droit social au Barreau de Lyon, fondateur de DAIRIA Avocats et créateur de DAIRIA IA.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Quels sont les domaines d'expertise de Sofiane Coly ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Droit du travail, droit de la paie, protection sociale, contrôles URSSAF, AT/MP, CSE, négociation collective.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Sofiane Coly défend-il les salariés ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Non, le cabinet DAIRIA Avocats accompagne exclusivement les employeurs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Qu'est-ce que DAIRIA IA ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Un assistant juridique alimenté par l'intelligence artificielle, conçu pour les employeurs, disponible 24/7 à 90&nbsp;€ HT/mois.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Qu'est-ce que GérerMesATMP ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Une plateforme de gestion des accidents du travail et maladies professionnelles pour les employeurs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Qu'est-ce qu'En Clair ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Un média juridique hebdomadaire gratuit pour dirigeants, DRH et experts-comptables.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Comment prendre rendez-vous ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Par email à <a href="mailto:s.coly@dairia-avocats.com" style="color: var(--orange);">s.coly@dairia-avocats.com</a> ou par téléphone au <a href="tel:+33672422486" style="color: var(--orange);">06 72 42 24 86</a>.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span>Où est situé le cabinet ?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>142 rue Duguesclin, 69006 Lyon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 0;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            font-family: inherit;
+            gap: 1rem;
+        }
+        .faq-question:hover { color: var(--orange); }
+        .faq-icon {
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.4);
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+        .faq-question.open .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease, opacity 0.2s ease;
+            opacity: 0;
+        }
+        .faq-answer.open {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .faq-answer p {
+            padding-bottom: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .faq-answer a { text-decoration: underline; }
+    </style>
+
+    <script>
+        function toggleFaq(btn) {
+            const wasOpen = btn.classList.contains('open');
+            document.querySelectorAll('.faq-question.open').forEach(q => {
+                q.classList.remove('open');
+                q.nextElementSibling.classList.remove('open');
+            });
+            if (!wasOpen) {
+                btn.classList.add('open');
+                btn.nextElementSibling.classList.add('open');
+            }
+        }
+    </script>
 
     <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer>
